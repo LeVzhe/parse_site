@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 
-
 URL_TEMPLATE = "http://seasonvar.ru/"
 request = requests.get(URL_TEMPLATE)
 
