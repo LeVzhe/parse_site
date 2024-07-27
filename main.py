@@ -6,6 +6,8 @@ URL_TEMPLATE = (
 )
 page_number = 1
 
+finally_content = []
+
 while True:
     url = URL_TEMPLATE.format(page_number)
     r = requests.get(url)
@@ -26,7 +28,12 @@ while True:
         )
         jewel_name = card.find("div", class_="products__item-title").a.text.strip()
         jewel_price = card.find("div", class_="products__item-price").text.strip()
+        finally_content.append(
+            {"img_url": image_url, "name": jewel_name, "price": jewel_price}
+        )
 
     page_number += 1
-    if page_number > 2:  # last_pag_page_int:
+    if page_number > last_pag_page_int:
         break
+
+print(finally_content)
