@@ -5,6 +5,10 @@ from bs4 import BeautifulSoup
 URL_TEMPLATE = "http://seasonvar.ru/"
 request = requests.get(URL_TEMPLATE)
 
+if request.status_code != 200:
+    print("The request status code is not 200. Exiting the program.")
+    exit()
+
 soup = BeautifulSoup(request.text, "html.parser")
 
 site_content = soup.find_all("div", class_="news")
