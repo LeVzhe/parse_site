@@ -27,13 +27,17 @@ while True:
             + card.find("div", class_="products__item-image").a.img["src"]
         )
         jewel_name = card.find("div", class_="products__item-title").a.text.strip()
-        jewel_price = card.find("div", class_="products__item-price").text.strip()
+        jewel_price = (
+            card.find("div", class_="products__item-price")
+            .text.strip()
+            .replace(" Руб.", "")
+            .replace(" ", "")
+        )
         finally_content.append(
-            {"img_url": image_url, "name": jewel_name, "price": jewel_price}
+            {"img_url": image_url, "name": jewel_name, "price": int(jewel_price)}
         )
 
     page_number += 1
+    last_pag_page_int = 2
     if page_number > last_pag_page_int:
         break
-
-print(finally_content)
