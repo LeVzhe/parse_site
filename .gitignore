@@ -2,3 +2,4 @@
 parsing_app_venv/
 .pylintrc
 .flake8
+parse_pandora/db.sqlite3

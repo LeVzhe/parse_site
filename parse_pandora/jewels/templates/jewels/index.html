@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+    <ul>
+        {% for jewel in jewels %}
+            <li>
+                <img src="{{ jewel.img_url }}" alt="{{ jewel.name }}">
+                <p>{{jewel.name}}</p>
+                <p>{{jewel.price}}</p>
+            </li>
+            <hr>
+        {% endfor %}
+    </ul>
+</body>
+</html>
