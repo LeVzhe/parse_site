@@ -1,2 +1,4 @@
 .vscode/
 parsing_app_venv/
+.pylintrc
+.flake8
